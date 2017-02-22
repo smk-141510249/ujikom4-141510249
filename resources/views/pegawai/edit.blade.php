@@ -7,7 +7,7 @@
 	<div class="container">
     <div class="row">
         <div class="col-md-6">
-            <div class="panel panel-primary">
+            <div class="panel panel-danger">
                 <div class="panel-heading">Edit Pegawai</div>
                 <div class="panel-body">
                     {!! Form::model($pegawai,['method'=>'PATCH','route'=>['pegawai.update',$pegawai->id],'enctype'=>'multipart/form-data']) !!}
@@ -58,7 +58,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="panel panel-primary">
+            <div class="panel panel-danger">
                 <div class="panel-heading">
                     <div class="panel-title">Tambah Pegawai</div>
                 </div>
@@ -152,7 +152,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary form-control">
+                                <button type="submit" class="btn btn-danger form-control">
                                     Simpan
                                 </button>
                             </div>

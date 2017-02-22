@@ -37,7 +37,7 @@
 <body>
  <style>
             html, body {
-                background-image:url(l.jpg);
+                background-image:url(orenmerah.jpg);
                     }</style>
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
@@ -70,6 +70,7 @@
                         @if (Auth::guest())
                             <li role="presentation" class="active"><a href="{{ url('/login') }}">Login</a></li>
                         @else
+
                         <li role="presentation" class="@yield('golongan')" ><a href="{{ url('/golongan') }}">Golongan</a></li>
                         <li role="presentation" class="@yield('jabatan')"><a href="{{ url('/jabatan') }}">Jabatan</a></li>
                         <li role="presentation" class="@yield('pegawai')"><a href="{{ url('/pegawai') }}">Pegawai</a></li>

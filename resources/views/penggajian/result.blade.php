@@ -6,7 +6,7 @@
 @section('content')
 
 <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-primary">
+            <div class="panel panel-danger">
                 <div class="panel-heading">Pencarian Gaji Menurut Karyawan</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" action="{{ url('query') }}" method="GET"">
@@ -38,7 +38,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary form-control">
+                                <button type="submit" class="btn btn-danger form-control">
                                     Cari
                                 </button>
                             </div>
@@ -70,14 +70,14 @@
 @endsection
 @section('content1')
 				<div class="col-md-15 col-md-offset-0">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-danger">
                         <div class="panel-body">
         <div class="col-md-15 col-md-offset-0">
-            <div class="panel panel-primary">
+            <div class="panel panel-danger">
 			    <div class="panel-heading">Data Penggajian</div>
 	                <div class="panel-body">
 				        
-				        <table border="2" class="table table-success table-border table-hover">
+				        <table border="2" class="table table-danger table-border table-hover">
 										<thead >
 											<tr>
 												<th>No</th>
@@ -163,7 +163,7 @@
 							                       <input type="hidden" name="petugas_penerima" value="dj">
 							                        <div class="form-group">
 							                            <div class="col-md-10 col-md-offset-0">
-							                                <button type="submit" class="btn btn-primary form-control">
+							                                <button type="submit" class="btn btn-danger form-control">
 							                                    Ambil
 							                                </button>
 							                            </div>

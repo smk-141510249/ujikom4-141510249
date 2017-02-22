@@ -4,11 +4,11 @@
 @endsection
 @section('content')
 <center><h1>Daftar Lembur Pegawai</h1></center>
-<a  href="{{url('lemburp/create')}}" class="btn btn-warning form-control">Tambah</a>
+<a  href="{{url('lemburp/create')}}" class="btn btn-danger form-control">Tambah</a>
 	<table border="1" class="table table-striped table-border table-hover">
 		<thead>
 			<tr>
-			<tr class ="bg-warning">
+			<tr class ="bg-danger">
 				<th>Lembur Ke-</th>
 				<th>Nama Pegawai</th>
 				<th>Kode Kategori Lembur</th>
@@ -29,7 +29,7 @@
 				</td>
 				<td>
 					{!! Form::open(['method'=>'DELETE','route'=>['lemburp.destroy',$data->id]]) !!}
-					{!! Form::submit('Delete',['class'=>'btn btn-success']) !!}
+					{!! Form::submit('Delete',['class'=>'btn btn-danger']) !!}
 					{!! Form::close() !!}
 				</td>
 			</tr>

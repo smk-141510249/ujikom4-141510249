@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <div class="panel panel-primary">
+            <div class="panel panel-danger">
                 <div class="panel-heading">Tambah User</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/pegawai') }}" enctype='multipart/Form-data'>
@@ -33,7 +33,7 @@
                                     <option value="Admin">Admin</option>
                                     <option value="HRD">HRD</option>
                                     <option value="Bagian Keuangan">Bagian Keuangan</option>
-                                    <option value="Karyawan">Karyawan</option>
+                                    <option value="Pegawai">Pegawai</option>
                                 </select>
                                 @if ($errors->has('type_user'))
                                     <span class="help-block">
@@ -84,7 +84,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="panel panel-primary">
+            <div class="panel panel-danger">
                 <div class="panel-heading">
                     <div class="panel-title">Tambah Pegawai</div>
                 </div>
@@ -160,7 +160,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary form-control">
+                                <button type="submit" class="btn btn-danger form-control">
                                     Simpan
                                 </button>
                             </div>

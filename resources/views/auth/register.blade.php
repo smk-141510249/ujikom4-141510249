@@ -25,16 +25,16 @@
                         </div>
                         <div class="form-group{{ $errors->has('type_user') ? ' has-error' : '' }}">
                             <label for="type_user" class="col-md-4 control-label">type_user</label>
-
                             <div class="col-md-6">
-                                <input id="type_user" type="text" class="form-control" name="type_user" value="{{ old('type_user') }}" required autofocus>
+                            <select class="form-control" name="type_user">
+                            <option value="Admin">Admin</option>
+                            <option value="Pegawai">Pegawai</option>
+                            <option value="HRD">HRD</option>
 
-                                @if ($errors->has('type_user'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('type_user') }}</strong>
-                                    </span>
-                                @endif
+                            </select>
                             </div>
+
+                            
                         </div>
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">

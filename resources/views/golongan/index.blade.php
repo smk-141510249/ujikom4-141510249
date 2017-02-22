@@ -5,10 +5,11 @@
 @section('content')
 
 <center><h1>Daftar Golongan</h1></center>
-<a  href="{{url('golongan/create')}}" class="btn btn-warning form-control">Tambah</a>
+<a  href="{{url('golongan/create')}}" class="btn btn-danger form-control">Tambah</a>
+<tr class ="bg-danger">
 <table border="1" class="table table-striped table-bordered table-hover">
 		<thead>
-			<tr class ="bg-warning">
+			<tr class ="bg-danger">
 				<th>No</th>
 				<th>Kode Golongan</th>
 				<th>Nama Golongan</th>
@@ -29,7 +30,7 @@
 				</td>
 				<td>
 					{!! Form::open(['method'=>'DELETE','route'=>['golongan.destroy',$data->id]]) !!}
-					{!! Form::submit('Delete',['class'=>'btn btn-success']) !!}
+					{!! Form::submit('Delete',['class'=>'btn btn-danger']) !!}
 					{!! Form::close() !!}
 				</td>
 			</tr>
