@@ -49,10 +49,10 @@ class golonganController extends Controller
         $rules=['kode_g' => 'required|unique:golongans,kode_g',
             'nama_g' => 'required','besar_uang' =>'required'];
         $sms=[
-            'kode_g.required' => 'jangan kosong',
+            'kode_g.required' => 'gaboleh kosong',
             'kode_g.unique' => 'data udah ada',
-            'nama_g.required' => 'jangan kosong',
-            'besar_uang.required' => 'jangan kosong',
+            'nama_g.required' => 'gaboleh kosong',
+            'besar_uang.required' => 'gaboleh kosong',
             ];
         $validasi = Validator::make(Input::all(),$rules,$sms);
         if($validasi->fails()){

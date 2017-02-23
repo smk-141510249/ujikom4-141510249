@@ -3,7 +3,7 @@
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
 <center><h1>Daftar Lembur Pegawai</h1></center>
-<a  href="<?php echo e(url('lemburp/create')); ?>" class="btn btn-danger form-control">Tambah</a>
+<a  href="<?php echo e(url('lemburp/create')); ?>" class="btn btn-success ">Tambah</a>
 	<table border="1" class="table table-striped table-border table-hover">
 		<thead>
 			<tr>
@@ -12,6 +12,7 @@
 				<th>Nama Pegawai</th>
 				<th>Kode Kategori Lembur</th>
 				<th>Jumlah Jam</th>
+				
 				<th colspan="2"><center>Action</center></th>
 			</tr>
 		</thead>
@@ -23,6 +24,7 @@
 				<td><?php echo e($data->pegawai->user->name); ?></td>
 				<td><?php echo e($data->kategori->kode_l); ?></td>
 				<td><?php echo e($data->Jumlah_jam); ?></td>
+
 				<td>
 					<a href="<?php echo e(route('lemburp.edit',$data->id)); ?>" class='btn btn-danger'> Edit </a>
 				</td>

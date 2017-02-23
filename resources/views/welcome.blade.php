@@ -13,8 +13,8 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #000;
-                color: #ffffff;
+                background-color: #ff1493;
+                color: #ff1493;
                 font-family: 'Raleway';
                 font-weight: 100;
                 height: 100vh;
@@ -50,7 +50,7 @@
             }
 
             .links > a {
-                color: #ffffff;
+                color: #ff1493;
                 padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;

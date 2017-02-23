@@ -55,5 +55,6 @@ class Kernel extends HttpKernel
         'Admin'=> \App\Http\Middleware\Admin::class,
         'Pegawai'=> \App\Http\Middleware\Pegawai::class,
         'HRD'=> \App\Http\Middleware\HRD::class,
+        'Keuangan'=> \App\Http\Middleware\Keuangan::class,
     ];
 }

@@ -5,7 +5,7 @@
 @section('content')
 
 <center><h1>Daftar Golongan</h1></center>
-<a  href="{{url('golongan/create')}}" class="btn btn-danger form-control">Tambah</a>
+<a  href="{{url('golongan/create')}}" class="btn btn-success ">Tambah</a>
 <tr class ="bg-danger">
 <table border="1" class="table table-striped table-bordered table-hover">
 		<thead>

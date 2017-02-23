@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 <center><h1>Daftar Lembur Pegawai</h1></center>
-<a  href="{{url('lemburp/create')}}" class="btn btn-danger form-control">Tambah</a>
+<a  href="{{url('lemburp/create')}}" class="btn btn-success ">Tambah</a>
 	<table border="1" class="table table-striped table-border table-hover">
 		<thead>
 			<tr>
@@ -13,6 +13,7 @@
 				<th>Nama Pegawai</th>
 				<th>Kode Kategori Lembur</th>
 				<th>Jumlah Jam</th>
+				
 				<th colspan="2"><center>Action</center></th>
 			</tr>
 		</thead>
@@ -24,6 +25,7 @@
 				<td>{{$data->pegawai->user->name}}</td>
 				<td>{{$data->kategori->kode_l}}</td>
 				<td>{{$data->Jumlah_jam}}</td>
+
 				<td>
 					<a href="{{route('lemburp.edit',$data->id)}}" class='btn btn-danger'> Edit </a>
 				</td>

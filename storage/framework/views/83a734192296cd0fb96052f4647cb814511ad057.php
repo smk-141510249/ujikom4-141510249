@@ -3,7 +3,7 @@
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
 <center><h1>Daftar Jabatan</h1></center>
-<a  href="<?php echo e(url('jabatan/create')); ?>" class="btn btn-danger form-control">Tambah</a>
+<a  href="<?php echo e(url('jabatan/create')); ?>" class="btn btn-success ">Tambah</a>
 	<table border="1" class="table table-striped table-border table-hover">
 		<thead>
 			<tr>
