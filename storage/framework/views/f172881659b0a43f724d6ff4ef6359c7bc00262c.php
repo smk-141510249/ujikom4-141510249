@@ -30,8 +30,9 @@
         </div>
         <div class="col-md-6 col-sm-6 col-xs-12">
              <select name="status_pengambilan" class="form-control">
-                <option value="0">Belum Diambil</option>
-                <option value="1">Sudah Diambil</option>
+                <option value="0">pilih</option>
+                <option value="1">Belum Diambil</option>
+                <option value="2">Sudah Diambil</option>
             </select>
         </div>
     </div>
@@ -48,7 +49,7 @@
             </div>
        <div class="form-group">
           <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-              <?php echo Form::submit('Simpan', ['class' => 'btn btn-success form-control']); ?>
+              <?php echo Form::submit('Simpan', ['class' => 'btn btn-danger form-control']); ?>
 
           </div>
       </div>

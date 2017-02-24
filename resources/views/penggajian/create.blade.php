@@ -29,8 +29,9 @@
         </div>
         <div class="col-md-6 col-sm-6 col-xs-12">
              <select name="status_pengambilan" class="form-control">
-                <option value="0">Belum Diambil</option>
-                <option value="1">Sudah Diambil</option>
+                <option value="0">pilih</option>
+                <option value="1">Belum Diambil</option>
+                <option value="2">Sudah Diambil</option>
             </select>
         </div>
     </div>
