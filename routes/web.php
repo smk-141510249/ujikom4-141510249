@@ -23,5 +23,5 @@ Route::resource('/error1','lemburpegawaiController@error1');
 Route::resource('/error2','tunjanganpController@error2');
 Route::resource('/tunjangan', 'tunjanganController');
 Route::resource('/tunjanganp', 'tunjanganpController');
-Route::resource('/penggajian', 'PenggajianController');
+Route::resource('/gajian', 'PenggajianController');
 Route::get('query', 'PenggajianController@search');

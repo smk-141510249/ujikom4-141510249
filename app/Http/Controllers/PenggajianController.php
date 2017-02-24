@@ -40,6 +40,7 @@ class PenggajianController extends Controller
         return view('penggajian.index',compact('penggajian','pegawai','tunjangan','lemburp'));
     }
 
+
      public function search(Request $request)
     {
         $query = Request::get('q');
@@ -60,8 +61,8 @@ class PenggajianController extends Controller
     public function create()
     {
         //return view('penggajian.create');
-        $tunjangan=Tunjangan_pegawai::paginate(10);
-        return view('penggajian.create',compact('tunjangan'));
+        $gaji=Tunjangan_pegawai::paginate(10);
+        return view('penggajian.create',compact('gaji'));
     }
 
     /**
@@ -72,83 +73,62 @@ class PenggajianController extends Controller
      */
     public function store(Request $request)
     {
-        /*$penggajian=Request::all();
-        Penggajian::create($penggajian);
-        return redirect('penggajian');*/
-         $penggajian=Input::all();
-         // dd($penggajian);
-        $where=Tunjangan_pegawai::where('id',$penggajian['tunjangan_pegawai_id'])->first();
-        // dd($where);
-        $wherepenggajian=Penggajian::where('tunjangan_pegawai_id',$where->id)->first();
-        // dd($wherepenggajian);
-        $wheretunjangan=Tunjangan::where('id',$where->kode_tunjangan_id)->first();
-        // dd($wheretunjangan);
-        $wherepegawai=Pegawai::where('id',$where->pegawai_id)->first();
-        // dd($wherepegawai);
-        $wherekategorilembur=Kategori_lembur::where('jabatan_id',$wherepegawai->jabatan_id)->where('golongan_id',$wherepegawai->golongan_id)->first();
-         // dd($wherekategori_lembur);
-        $wherelemburpegawai=Lembur_pegawai::where('pegawai_id',$wherepegawai->id)->first();
-        // dd($wherelemburpegawai);
-        $wherejabatan=Jabatan::where('id',$wherepegawai->jabatan_id)->first();
-        // dd($wherejabatan);
-        $wheregolongan=Golongan::where('id',$wherepegawai->golongan_id)->first();
-        // dd($wheregolongan);
+        $i_gaji=Input::all();
+        $tunjangan_pegawai=Tunjangan_pegawai::where('id',$i_gaji['tunjangan_pegawai_id'])->first();
+        $WPenggajian=Penggajian::where('tunjangan_pegawai_id',$tunjangan_pegawai->id)->first();
+        $tunjangan=Tunjangan::where('id',$tunjangan_pegawai->kode_tunjangan_id)->first();
+        $pegawai=Pegawai::where('id',$tunjangan_pegawai->pegawai_id)->first();
+        $kategori_lembur=Kategori_lembur::where('jabatan_id',$pegawai->jabatan_id)->where('golongan_id',$pegawai->golongan_id)->first();
+        $lembur_pegawai=Lembur_pegawai::where('pegawai_id',$pegawai->id)->first();
+        $jabatan=Jabatan::where('id',$pegawai->jabatan_id)->first();
+        $golongan=Golongan::where('id',$pegawai->golongan_id)->first();
+       
 
-        $penggajian=new Penggajian ;
-        if (isset($wherepenggajian)) {
-            $error=true ;
-            $tunjangan=Tunjangan_pegawai::paginate(10);
-            return view('penggajian.create',compact('tunjangan','error'));
-        }
-        elseif (!isset($wherelemburpegawai)) {
-            $nol=0 ;
-            $penggajian->jumlah_jam_lembur=$nol;
-            $penggajian->jumlah_uang_lembur=$nol ;
-            $penggajian->gaji_pokok=$wherejabatan->besar_uang+$wheregolongan->besar_uang;
-            $penggajian->total_gaji=($wheretunjangan->besar_uang)+($wherejabatan->besar_uang+$wheregolongan->besar_uang);
-                $penggajian->status_pengambilan=0 ;
-            $penggajian->tanggal_pengambilan =date('d-m-y');
-        $penggajian->tunjangan_pegawai_id=Input::get('tunjangan_pegawai_id');
-        $penggajian->petugas_penerimaan=auth::User()->name ;
-        $penggajian->save();
-        }
-        elseif (!isset($wherelemburpegawai)||!isset($wherekategorilembur)) {
-            $nol=0 ;
-            $penggajian->jumlah_jam_lembur=$nol;
-            $penggajian->jumlah_uang_lembur=$nol ;
-            $penggajian->gaji_pokok=$wherejabatan->besar_uang+$wheregolongan->besar_uang;
-            $penggajian->total_gaji=($wheretunjangan->besar_uang)+($wherejabatan->besar_uang+$wheregolongan->besar_uang);
-            $penggajian->status_pengambilan=0 ;
-            $penggajian->tanggal_pengambilan =date('d-m-y');
-        $penggajian->tunjangan_pegawai_id=Input::get('tunjangan_pegawai_id');
-        $penggajian->petugas_penerimaan=auth::user()->name ;
-        $penggajian->save();
-        }
-        else{
+       $gaji = new Penggajian ;
 
-            $penggajian->jumlah_jam_lembur=$wherelemburpegawai->Jumlah_jam;
-            $penggajian->jumlah_uang_lembur=$wherelemburpegawai->Jumlah_jam*$wherekategorilembur->besar_uang ;
-            $penggajian->gaji_pokok=$wherejabatan->besar_uang+$wheregolongan->besar_uang;
-            $penggajian->total_gaji=($wherelemburpegawai->Jumlah_jam*$wherekategorilembur->besar_uang)+($wheretunjangan->besar_uang)+($wherejabatan->besar_uang+$wheregolongan->besar_uang);
-            $penggajian->tanggal_pengambilan =date('d-m-y');
-            $penggajian->tunjangan_pegawai_id=Input::get('tunjangan_pegawai_id');
-            $penggajian->status_pengambilan=0 ;
-            $penggajian->petugas_penerimaan=auth::user()->name ;
-            $penggajian->save();
-            }
-            return redirect('penggajian');
-    }
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-        $penggajian=Penggajian::find($id);
-        return view('penggajian.read',compact('penggajian'));
+       if (isset($WPenggajian)) {
+           $error=true ;
+           $tunjangan=Tunjangan_pegawai::paginate(10);
+           return view('penggajian.create',compact('tunjangan','error'));
+       }
+       elseif (!isset($lembur_pegawai)) {
+            $nol = 0;
+            $gaji->jumlah_jam_lembur= $nol;
+            $gaji->jumlah_uang_lembur = $nol;
+            $gaji->gaji_pokok=$jabatan->besaran_uang+$golongan->besaran_uang;
+            $gaji->total_gaji=($tunjangan->jumlah_anak*$tunjangan->besaran_uang)+($jabatan->besaran_uang+$golongan->besaran_uang);
+            $gaji->tanggal_pengambilan = date('d-m-y');
+            $gaji->status_pengambilan = Input::get('status_pengambilan');
+            $gaji->tunjangan_pegawai_id = Input::get('tunjangan_pegawai_id');
+            $gaji->petugas_penerima = Auth::user()->name;
+            $gaji->save();
+        }
+        elseif(!isset($lembur_pegawai) || !isset($kategori_lembur))
+        {
+            $nol = 0;
+            $gaji->jumlah_jam_lembur= $nol;
+            $gaji->jumlah_uang_lembur = $nol;
+            $gaji->gaji_pokok=$jabatan->besaran_uang+$golongan->besaran_uang;
+            $gaji->total_gaji = ($tunjangan->jumlah_anak*$tunjangan->besaran_uang)+($jabatan->besaran_uang+$golongan->besaran_uang);
+            $gaji->tanggal_pengambilan = date('d-m-y');
+            $gaji->status_pengambilan = Input::get('status_pengambilan');
+            $gaji->tunjangan_pegawai_id = Input::get('tunjangan_pegawai_id');
+            $gaji->petugas_penerima = Auth::user()->name;
+            $gaji->save();
+        }
+        else
+        {
+            $gaji->jumlah_jam_lembur=$lembur_pegawai->Jumlah_jam;
+            $gaji->jumlah_uang_lembur =($lembur_pegawai->Jumlah_jam)*($kategori_lembur->besaran_uang);
+            $gaji->gaji_pokok=$jabatan->besaran_uang+$golongan->besaran_uang;
+            $gaji->total_gaji = ($lembur_pegawai->Jumlah_jam*$kategori_lembur->besaran_uang)+($tunjangan->jumlah_anak*$tunjangan->besaran_uang)+($jabatan->besaran_uang+$golongan->besaran_uang);
+            $gaji->tanggal_pengambilan = date('d-m-y');
+            $gaji->status_pengambilan = Input::get('status_pengambilan');
+            $gaji->tunjangan_pegawai_id = Input::get('tunjangan_pegawai_id');
+            $gaji->petugas_penerima = Auth::user()->name;
+            $gaji->save();
+        }
+        return redirect('gajian');
     }
 
     /**
@@ -184,6 +164,6 @@ class PenggajianController extends Controller
     {
         //
          Penggajian::find($id)->delete();
-        return redirect('penggajian');
+        return redirect('gajian');
     }
 }

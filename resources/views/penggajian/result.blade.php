@@ -3,71 +3,7 @@
 @section('penggajian')
     active
 @endsection
-@section('content')
 
-<div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-success">
-                <div class="panel-heading">Pencarian Gaji Menurut Karyawan</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" action="{{ url('query') }}" method="GET"">
-                        {{ csrf_field() }}
-
-                        
-
-                        <div class="form-group{{ $errors->has('q') ? ' has-error' : '' }}">
-                            <label for="q" class="col-md-4 control-label">Pegawai</label>
-
-                            <div class="col-md-6">
-                                <select name="q" class="form-control">
-                                    <option value="">pilih</option>
-                                    @foreach($pegawaii as $data)
-                                    <option value="{{$data->id}}">{{$data->nip}}{{$data->user->name}}</option>
-                                    @endforeach
-                                </select>
-
-                                @if ($errors->has('q'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('q') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                       
-                        
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-success form-control">
-                                    Cari
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-<div class="section">
-<div class="card-panel green white-text">Hasil pencarian : <b>{{$query}}</b></div>
-    @foreach($penggajian as $data)
-    <div class="row">
-		<div class="col s12">
-
-
-            
-		</div>
-	</div>
-	@endforeach
-
-</div>
-
-	
-	
-	
-
-
-
-@endsection
 @section('content1')
 				<div class="col-md-15 col-md-offset-0">
                     <div class="panel panel-success">
@@ -160,7 +96,7 @@
 														<input type="hidden" name="gaji_pokok" value="{{$data->golongan->besar_uang+$data->jabatan->besar_uang}}">
 							                        <input type="hidden" name="tanggal_pengambilan" value="{{date('Y-m-d')}}" >
 							                        <input type="hidden" name="status_pengambilan" value="1" >
-							                       <input type="hidden" name="petugas_penerima" value="dj">
+							                       <input type="hidden" name="petugas_penerima" value="Karyawan">
 							                        <div class="form-group">
 							                            <div class="col-md-10 col-md-offset-0">
 							                                <button type="submit" class="btn btn-success form-control">

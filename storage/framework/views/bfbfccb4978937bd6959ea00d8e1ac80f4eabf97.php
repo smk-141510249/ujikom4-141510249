@@ -80,7 +80,7 @@
                         <li role="presentation" class="<?php echo $__env->yieldContent('lemburp'); ?>"><a href="<?php echo e(url('/lemburp')); ?>">Lembur Pegawai</a></li>
                         <li role="presentation" class="<?php echo $__env->yieldContent('tunjangan'); ?>"><a href="<?php echo e(url('/tunjangan')); ?>">Kategori Tunjangan</a></li>
                         <li role="presentation" class="<?php echo $__env->yieldContent('tunjanganp'); ?>"><a href="<?php echo e(url('/tunjanganp')); ?>">Tunjangan Pegawai</a></li>
-                        <li role="presentation" class="<?php echo $__env->yieldContent('penggajian'); ?>"><a href="<?php echo e(url('/penggajian')); ?>">Penggajian</a></li>
+                        <li role="presentation" class="<?php echo $__env->yieldContent('gajian'); ?>"><a href="<?php echo e(url('/gajian')); ?>">Penggajian</a></li>
 
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

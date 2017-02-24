@@ -80,7 +80,7 @@
                         <li role="presentation" class="@yield('lemburp')"><a href="{{ url('/lemburp') }}">Lembur Pegawai</a></li>
                         <li role="presentation" class="@yield('tunjangan')"><a href="{{ url('/tunjangan') }}">Kategori Tunjangan</a></li>
                         <li role="presentation" class="@yield('tunjanganp')"><a href="{{ url('/tunjanganp') }}">Tunjangan Pegawai</a></li>
-                        <li role="presentation" class="@yield('penggajian')"><a href="{{ url('/penggajian') }}">Penggajian</a></li>
+                        <li role="presentation" class="@yield('gajian')"><a href="{{ url('/gajian') }}">Penggajian</a></li>
 
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
